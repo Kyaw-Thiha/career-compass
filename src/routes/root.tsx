@@ -7,7 +7,7 @@ export default function Root() {
             <nav className="flex flex-row content-between justify-between mb-8">
                 <div></div>
                 <div className="flex flex-row gap-2 items-center">
-                    <img className="w-24" src='./logo.png' alt="Logo" />
+                    <img className="w-24" src='/logo.png' alt="Logo" />
                     <h2 className="text-2xl">Career Partners</h2>
                 </div>
                 <div className="flex items-center">

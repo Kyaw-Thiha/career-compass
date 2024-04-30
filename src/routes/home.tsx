@@ -8,7 +8,7 @@ function HomePage() {
                 <h1 className='text-4xl font-medium '>Find your future today!</h1>
                 <h2 className='text-2xl'>Your most trusted mentorship partner</h2>
             </div>
-            <div> <img src="./hero.jpg" alt="Hero Image" className='rounded-3xl h-96'/> </div>
+            <div> <img src="/hero.jpg" alt="Hero Image" className='rounded-3xl h-96'/> </div>
         </div>
     )
 }
