@@ -7,24 +7,31 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Link } from "react-router-dom"
+
+import { mentors } from "@/lib/data"
 
 function HomePage() {
 
     return (
-        <main className="mb-40">
-            <div className='grid grid-cols-2'>
-                <div className='flex flex-col gap-4 justify-center text-center'>
-                    <h1 className='text-4xl font-medium '>Find your future today!</h1>
-                    <h2 className='text-2xl'>Your most trusted mentorship partner</h2>
+        <main className="mb-40 mx-4">
+            <div className='md:grid md:grid-cols-2 flex flex-col-reverse'>
+                <div className='flex flex-col gap-2 md:gap-4 justify-center text-center mt-4 md:mt-0'>
+                    <h1 className='text-2xl md:text-4xl font-medium '>Find your future today!</h1>
+                    <h2 className='text-xl md:text-2xl'>Your most trusted mentorship partner</h2>
                 </div>
-                <div> <img src="/hero.jpg" alt="Hero Image" className='rounded-3xl h-96' /> </div>
+                <div className="flex item-center justify-center">
+                    <img src="/hero.jpg" alt="Hero Image" className='rounded-3xl h-48 md:h-96' />
+                </div>
             </div>
             <div className="flex mt-20 items-center justify-center">
-                <div className="border-2 p-12">
-                    <div className="">
-                        <h2 className="text-2xl">Not sure what career to go?</h2>
-                        <h3 className="text-xl">Answer a short quiz to find out what careers may suit you!</h3>
-                        <Button className="mt-4 float-right">Answer Quiz</Button>
+                <div className="border-2 p-4 md:p-12">
+                    <div>
+                        <h2 className="text-xl md:text-3xl mb-2">Not sure what career to go?</h2>
+                        <h3 className="text-muted-foreground text-md md:text-xl">Answer a short quiz to find out what careers may suit you!</h3>
+                        <Link to="quiz">
+                            <Button className="mt-8 float-right">Answer Quiz</Button>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -36,50 +43,13 @@ function HomePage() {
 export default HomePage
 
 const MentorsList = () => {
-    const mentors = [
-        {
-            name: "Albert Dera",
-            position: "Head of Marketing",
-            image: "/mentors/albert-dera.jpg",
-            skills: ["Interview Preparation", "Goal Setting", "Team Management"]
-        },
-        {
-            name: "John",
-            position: "Head of Marketing",
-            image: "/mentors/albert-dera.jpg",
-            skills: ["Interview Preparation", "Goal Setting", "Team Management"]
-        },
-        {
-            name: "John",
-            position: "Head of Marketing",
-            image: "/mentors/albert-dera.jpg",
-            skills: ["Interview Preparation", "Goal Setting", "Team Management"]
-        },
-        {
-            name: "John",
-            position: "Head of Marketing",
-            image: "/mentors/albert-dera.jpg",
-            skills: ["Interview Preparation", "Goal Setting", "Team Management"]
-        },
-        {
-            name: "John",
-            position: "Head of Marketing",
-            image: "/mentors/albert-dera.jpg",
-            skills: ["Interview Preparation", "Goal Setting", "Team Management"]
-        },
-        {
-            name: "John",
-            position: "Head of Marketing",
-            image: "/mentors/albert-dera.jpg",
-            skills: ["Interview Preparation", "Goal Setting", "Team Management"]
-        },
-    ]
 
     return <div>
         <h2 className="text-3xl font-medium mt-20 mb-8 text-center">Mentors</h2>
-        <div className="grid grid-cols-4 gap-4 mx-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {mentors.map((mentor) =>
-                <Card className="hover:opacity-75 active:opacity-90 cursor-pointer">
+                <Link to={`mentors/${mentor.id}`}>
+                    <Card className="hover:opacity-75 active:opacity-90 cursor-pointer">
                     <CardHeader>
                         <img src={mentor.image} alt={mentor.name} className="h-60 object-cover object-top" />
                     </CardHeader>
@@ -93,6 +63,7 @@ const MentorsList = () => {
                         )}
                     </CardFooter>
                 </Card>
+                </Link>
             )}
         </div>
     </div>

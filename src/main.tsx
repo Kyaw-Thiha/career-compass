@@ -6,6 +6,7 @@ import "./index.css";
 import Root from "./routes/root.tsx";
 import ErrorPage from "./routes/error.tsx";
 import HomePage from "./routes/home.tsx";
+import MentorDetailPage from "./routes/mentor-detail.tsx";
 import { AnimatePresence } from "framer-motion";
 
 const router = createBrowserRouter([
@@ -19,8 +20,8 @@ const router = createBrowserRouter([
         element: <HomePage/>,
       },
       {
-        path: "/projects/:id",
-        element: <HomePage />,
+        path: "/mentors/:id",
+        element: <MentorDetailPage />,
       },
       // {
       //   path: "contacts/:contactId",
