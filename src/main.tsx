@@ -10,33 +10,34 @@ import MentorDetailPage from "./routes/mentor-detail.tsx";
 import { AnimatePresence } from "framer-motion";
 
 const router = createBrowserRouter([
-  {
-    // path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "/",
-        element: <HomePage/>,
-      },
-      {
-        path: "/mentors/:id",
-        element: <MentorDetailPage />,
-      },
-      // {
-      //   path: "contacts/:contactId",
-      //   element: <Contact />,
-      // },
-    ],
-  },
+    {
+        // path: "/",
+        element: <Root />,
+        errorElement: <ErrorPage />,
+        children: [
+            {
+                path: "/",
+                element: <HomePage />,
+            },
+            {
+                path: "/mentors/:id",
+                element: <MentorDetailPage />,
+            },
+
+            // {
+            //   path: "contacts/:contactId",
+            //   element: <Contact />,
+            // },
+        ],
+    },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <AnimatePresence>
-      <RouterProvider router={router} />
-    </AnimatePresence>
-  </React.StrictMode>,
+    <React.StrictMode>
+        <AnimatePresence>
+            <RouterProvider router={router} />
+        </AnimatePresence>
+    </React.StrictMode>,
 );
 
 

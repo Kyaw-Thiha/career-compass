@@ -1,28 +1,48 @@
-
 import { Button } from "@/components/ui/button"
-
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { mentors } from "@/lib/data"
+import { useParams } from "react-router-dom"
 
 function MentorDetailPage() {
+    const params = useParams()
+    const mentor = mentors.find((mentor) => mentor.id.toString() == params.id)
 
     return (
-        <main className="mb-40 mx-4">
-            <div className='md:grid md:grid-cols-2 flex flex-col-reverse'>
-                <div className='flex flex-col gap-2 md:gap-4 justify-center text-center mt-4 md:mt-0'>
-                    <h1 className='text-2xl md:text-4xl font-medium '>Find your future today!</h1>
-                    <h2 className='text-xl md:text-2xl'>Your most trusted mentorship partner</h2>
-                </div>
-                <div className="flex item-center justify-center">
-                    <img src="/hero.jpg" alt="Hero Image" className='rounded-3xl h-48 md:h-96' />
+        <main className="mb-40">
+            <div className="relative bg-primary h-52">
+                <div className="absolute flex flex-row bottom-[-30%] left-8">
+                    <img src={mentor?.image} alt={mentor?.name} className="rounded-[50%] h-48 w-48 object-cover object-top" />
+                    <div className="flex flex-col justify-center ml-4">
+                        <h2 className="text-white text-2xl font-medium">{mentor?.name}</h2>
+                        <h3 className="text-xl text-muted-foreground"> {mentor?.position}</h3>
+                    </div>
                 </div>
             </div>
-            <div className="flex mt-20 items-center justify-center">
-                <div className="border-2 p-4 md:p-12">
-                    <div>
-                        <h2 className="text-xl md:text-3xl mb-2">Not sure what career to go?</h2>
-                        <h3 className="text-muted-foreground text-md md:text-xl">Answer a short quiz to find out what careers may suit you!</h3>
-                        <Button className="mt-8 float-right">Answer Quiz</Button>
-                    </div>
+            <div className="mt-20 mx-4 grid grid-cols-2">
+                <div>
+                    <p className="text-lg font-medium">{mentor?.description}</p>
+                </div>
+                <div>
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Book a session</CardTitle>
+                            <CardDescription></CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <p>Card Content</p>
+                        </CardContent>
+                        <CardFooter>
+                            <p>Card Footer</p>
+                        </CardFooter>
+                    </Card>
+
                 </div>
             </div>
         </main>
