@@ -15,7 +15,6 @@ import {
     Dialog,
     DialogContent,
     DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
@@ -32,7 +31,7 @@ function MentorDetailPage() {
     const [date, setDate] = useState<Date | undefined>(new Date())
     const { toast } = useToast()
 
-    const [sessionType, setSessionType] = useState()
+    const [sessionType, setSessionType] = useState("")
 
     return (
         <main className="mb-40">
