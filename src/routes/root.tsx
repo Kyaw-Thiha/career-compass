@@ -1,16 +1,17 @@
 import { Outlet } from "react-router-dom";
 import { Button } from "@/components/ui/button"
+import { useNavigate } from "react-router-dom";
 
 export default function Root() {
+    const navigate = useNavigate()
     return (
         <div id="detail">
-            <nav className="flex flex-row content-between justify-between mb-8 mx-4">
+            <nav className="grid grid-cols-3 mb-8 mx-4">
                 <div className="hidden md:block"></div>
-                <div className="flex flex-row gap-2 items-center">
-                    <img className="w-24" src='/logo.png' alt="Logo" />
-                    <h2 className="text-2xl hidden md:block">Career Partners</h2>
+                <div className="flex flex-row gap-2 items-center justify-self-center cursor-pointer" onClick={() => navigate("/")}>
+                    <img className="w-64" src='/logo.png' alt="Logo" />
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center justify-self-end">
                     <Button>Find Your Mentors</Button>
                 </div>
             </nav>
