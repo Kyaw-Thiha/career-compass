@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Button } from "@/components/ui/button"
 import { useNavigate } from "react-router-dom";
+import { Toaster } from "@/components/ui/toaster"
 
 export default function Root() {
     const navigate = useNavigate()
@@ -16,6 +17,7 @@ export default function Root() {
                 </div>
             </nav>
             <Outlet />
+            <Toaster />
         </div>
     );
 }

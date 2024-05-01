@@ -10,9 +10,10 @@ import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom"
 
 import { mentors } from "@/lib/data"
+import { useToast } from "@/components/ui/use-toast"
 
 function HomePage() {
-
+    const { toast } = useToast()
     return (
         <main className="mb-40 mx-4">
             <div className='md:grid md:grid-cols-2 flex flex-col-reverse'>
@@ -29,9 +30,13 @@ function HomePage() {
                     <div>
                         <h2 className="text-xl md:text-3xl mb-2">Not sure what career to go?</h2>
                         <h3 className="text-muted-foreground text-md md:text-xl">Answer a short quiz to find out what careers may suit you!</h3>
-                        <Link to="quiz">
-                            <Button className="mt-8 float-right">Answer Quiz</Button>
-                        </Link>
+                        <Button className="mt-8 float-right" onClick={() => {
+                            toast({
+                                title: "Navigate to quiz page",
+                                description: "Not yet implemented",
+                            })
+                        }}
+                        >Answer Quiz</Button>
                     </div>
                 </div>
             </div>
@@ -50,19 +55,19 @@ const MentorsList = () => {
             {mentors.map((mentor) =>
                 <Link to={`mentors/${mentor.id}`}>
                     <Card className="hover:opacity-75 active:opacity-90 cursor-pointer">
-                    <CardHeader>
-                        <img src={mentor.image} alt={mentor.name} className="h-60 object-cover object-top" />
-                    </CardHeader>
-                    <CardContent>
-                        <CardTitle>{mentor.name}</CardTitle>
-                        <CardDescription>{mentor.position}</CardDescription>
-                    </CardContent>
-                    <CardFooter className="flex flex-wrap gap-2">
-                        {mentor.skills.map((skill) =>
-                            <span className="text-sm rounded-xl border px-2 py-1">{skill}</span>
-                        )}
-                    </CardFooter>
-                </Card>
+                        <CardHeader>
+                            <img src={mentor.image} alt={mentor.name} className="h-60 object-cover object-top" />
+                        </CardHeader>
+                        <CardContent>
+                            <CardTitle>{mentor.name}</CardTitle>
+                            <CardDescription>{mentor.position}</CardDescription>
+                        </CardContent>
+                        <CardFooter className="flex flex-wrap gap-2">
+                            {mentor.skills.map((skill) =>
+                                <span className="text-sm rounded-xl border px-2 py-1">{skill}</span>
+                            )}
+                        </CardFooter>
+                    </Card>
                 </Link>
             )}
         </div>

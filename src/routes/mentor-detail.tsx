@@ -11,10 +11,28 @@ import { mentors } from "@/lib/data"
 import { useParams } from "react-router-dom"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { Badge } from "@/components/ui/badge"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
+import { Calendar } from "@/components/ui/calendar"
+import { useState } from "react"
+import { DialogClose } from "@radix-ui/react-dialog"
+import { useToast } from "@/components/ui/use-toast"
 
 function MentorDetailPage() {
     const params = useParams()
     const mentor = mentors.find((mentor) => mentor.id.toString() == params.id)
+
+    const [date, setDate] = useState<Date | undefined>(new Date())
+    const { toast } = useToast()
+
+    const [sessionType, setSessionType] = useState()
 
     return (
         <main className="mb-40">
@@ -33,9 +51,9 @@ function MentorDetailPage() {
                     <div>
                         <h3 className="text-md mt-12 font-medium">Skills</h3>
                         <div className="flex flex-col gap-2 mt-4 w-max">
-                        {mentor?.skills.map((skill) =>
+                            {mentor?.skills.map((skill) =>
                                 <Badge variant="outline" className="px-4 py-2">{skill}</Badge>
-                        )}
+                            )}
                         </div>
                     </div>
                 </div>
@@ -46,7 +64,11 @@ function MentorDetailPage() {
                             <CardDescription></CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <ToggleGroup className="flex flex-col w-full border-2" type="single">
+                            <ToggleGroup value={sessionType}
+                                onValueChange={(value) => {
+                                    if (value) setSessionType(value);
+                                }}
+                                className="flex flex-col w-full border-2" type="single">
                                 {mentor?.sessions.map((session) =>
                                     <ToggleGroupItem value={session.text} className="w-full flex flex-col gap-2 h-full py-2">
                                         <p className="text-lg">{session.text}</p>
@@ -57,7 +79,41 @@ function MentorDetailPage() {
                             </ToggleGroup>
                         </CardContent>
                         <CardFooter>
-                            <Button>Confirm</Button>
+                            <Dialog>
+                                <DialogTrigger asChild><Button>Confirm</Button></DialogTrigger>
+                                <DialogContent>
+                                    <DialogHeader>
+                                        <DialogTitle>Choose your date</DialogTitle>
+                                        <DialogDescription>
+                                            Ensure you are free
+                                        </DialogDescription>
+                                    </DialogHeader>
+                                    <Calendar
+                                        mode="single"
+                                        selected={date}
+                                        onSelect={setDate}
+                                        className="rounded-md border flex items-center justify-center"
+                                    />
+                                    <div className="flex gap-4">
+                                        <DialogClose asChild>
+                                            <Button onClick={() => {
+                                                toast({
+                                                    title: `Sheduled: ${sessionType}`,
+                                                    description: `Friday, ${date?.toLocaleString()}`,
+                                                })
+                                            }}>
+                                                Confirm
+                                            </Button>
+                                        </DialogClose>
+                                        <DialogClose asChild>
+                                            <Button type="button" variant="secondary">
+                                                Cancel
+                                            </Button>
+                                        </DialogClose>
+                                    </div>
+                                </DialogContent>
+                            </Dialog>
+
                         </CardFooter>
                     </Card>
 
