@@ -20,14 +20,14 @@ function MentorDetailPage() {
         <main className="mb-40">
             <div className="relative bg-primary h-52">
                 <div className="absolute flex flex-row bottom-[-30%] left-8">
-                    <img src={mentor?.image} alt={mentor?.name} className="rounded-[50%] h-48 w-48 object-cover object-top" />
+                    <img src={mentor?.image} alt={mentor?.name} className="rounded-[50%] h-32 w-32 md:h-48 md:w-48 object-cover object-top" />
                     <div className="flex flex-col justify-center ml-4">
                         <h2 className="text-white text-2xl font-medium">{mentor?.name}</h2>
                         <h3 className="text-xl text-muted-foreground"> {mentor?.position}</h3>
                     </div>
                 </div>
             </div>
-            <div className="mt-20 mx-4 grid grid-cols-2">
+            <div className="mt-20 mx-4 md:mx-12 flex flex-col gap-4 md:grid md:grid-cols-2">
                 <div>
                     <p className="text-lg font-medium text-muted-foreground">{mentor?.description}</p>
                     <div>

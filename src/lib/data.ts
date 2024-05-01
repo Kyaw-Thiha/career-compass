@@ -65,12 +65,12 @@ export const mentors = [
                 fee: 30000
             },
             {
-                text: "Resume Feedback",
+                text: "Content Writing Tips",
                 duration: 30,
                 fee: 50000
             },
             {
-                text: "Marketing Tips",
+                text: "Content Analysis",
                 duration: 60,
                 fee: 100000
             },
