@@ -1,14 +1,16 @@
 import { Button } from "@/components/ui/button"
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
 } from "@/components/ui/card"
 import { mentors } from "@/lib/data"
 import { useParams } from "react-router-dom"
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { Badge } from "@/components/ui/badge"
 
 function MentorDetailPage() {
     const params = useParams()
@@ -27,7 +29,15 @@ function MentorDetailPage() {
             </div>
             <div className="mt-20 mx-4 grid grid-cols-2">
                 <div>
-                    <p className="text-lg font-medium">{mentor?.description}</p>
+                    <p className="text-lg font-medium text-muted-foreground">{mentor?.description}</p>
+                    <div>
+                        <h3 className="text-md mt-12 font-medium">Skills</h3>
+                        <div className="flex flex-col gap-2 mt-4 w-max">
+                        {mentor?.skills.map((skill) =>
+                                <Badge variant="outline" className="px-4 py-2">{skill}</Badge>
+                        )}
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <Card>
@@ -36,10 +46,18 @@ function MentorDetailPage() {
                             <CardDescription></CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <p>Card Content</p>
+                            <ToggleGroup className="flex flex-col w-full border-2" type="single">
+                                {mentor?.sessions.map((session) =>
+                                    <ToggleGroupItem value={session.text} className="w-full flex flex-col gap-2 h-full py-2">
+                                        <p className="text-lg">{session.text}</p>
+                                        <p className="text-muted-foreground">{session.duration} min, {session.fee} per session</p>
+                                    </ToggleGroupItem>
+                                )
+                                }
+                            </ToggleGroup>
                         </CardContent>
                         <CardFooter>
-                            <p>Card Footer</p>
+                            <Button>Confirm</Button>
                         </CardFooter>
                     </Card>
 

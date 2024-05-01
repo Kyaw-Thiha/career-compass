@@ -6,7 +6,24 @@ export const mentors = [
         position: "Head of Marketing",
         description: "5 years of leading marketing teams",
         image: "/mentors/albert-dera.jpg",
-        skills: ["Interview Preparation", "Goal Setting", "Team Management"]
+        skills: ["Interview Preparation", "Goal Setting", "Team Management"],
+        sessions: [
+            {
+                text: "Career Development",
+                duration: 30,
+                fee: 30000
+            },
+            {
+                text: "Resume Feedback",
+                duration: 30,
+                fee: 50000
+            },
+            {
+                text: "Marketing Tips",
+                duration: 60,
+                fee: 100000
+            },
+        ]
     },
     {
         id: 2,
@@ -14,7 +31,25 @@ export const mentors = [
         position: "Head of Marketing",
         description: "5 years of leading marketing teams",
         image: "/mentors/albert-dera.jpg",
-        skills: ["Interview Preparation", "Goal Setting", "Team Management"]
+        skills: ["Interview Preparation", "Goal Setting", "Team Management"],
+        sessions: [
+            {
+                text: "Career Development",
+                duration: 30,
+                fee: 30000
+            },
+            {
+                text: "Resume Feedback",
+                duration: 30,
+                fee: 50000
+            },
+            {
+                text: "Marketing Tips",
+                duration: 60,
+                fee: 100000
+            },
+        ]
+
     },
     {
         id: 3,
@@ -22,7 +57,25 @@ export const mentors = [
         position: "Head of Marketing",
         description: "5 years of leading marketing teams",
         image: "/mentors/albert-dera.jpg",
-        skills: ["Interview Preparation", "Goal Setting", "Team Management"]
+        skills: ["Interview Preparation", "Goal Setting", "Team Management"],
+        sessions: [
+            {
+                text: "Career Development",
+                duration: 30,
+                fee: 30000
+            },
+            {
+                text: "Resume Feedback",
+                duration: 30,
+                fee: 50000
+            },
+            {
+                text: "Marketing Tips",
+                duration: 60,
+                fee: 100000
+            },
+        ]
+
     },
     {
         id: 4,
@@ -30,7 +83,25 @@ export const mentors = [
         position: "Head of Marketing",
         description: "5 years of leading marketing teams",
         image: "/mentors/albert-dera.jpg",
-        skills: ["Interview Preparation", "Goal Setting", "Team Management"]
+        skills: ["Interview Preparation", "Goal Setting", "Team Management"],
+        sessions: [
+            {
+                text: "Career Development",
+                duration: 30,
+                fee: 30000
+            },
+            {
+                text: "Resume Feedback",
+                duration: 30,
+                fee: 50000
+            },
+            {
+                text: "Marketing Tips",
+                duration: 60,
+                fee: 100000
+            },
+        ]
+
     },
     {
         id: 5,
@@ -38,7 +109,25 @@ export const mentors = [
         position: "Head of Marketing",
         description: "5 years of leading marketing teams",
         image: "/mentors/albert-dera.jpg",
-        skills: ["Interview Preparation", "Goal Setting", "Team Management"]
+        skills: ["Interview Preparation", "Goal Setting", "Team Management"],
+        sessions: [
+            {
+                text: "Career Development",
+                duration: 30,
+                fee: 30000
+            },
+            {
+                text: "Resume Feedback",
+                duration: 30,
+                fee: 50000
+            },
+            {
+                text: "Marketing Tips",
+                duration: 60,
+                fee: 100000
+            },
+        ]
+
     },
     {
         id: 6,
@@ -46,6 +135,24 @@ export const mentors = [
         position: "Head of Marketing",
         description: "5 years of leading marketing teams",
         image: "/mentors/albert-dera.jpg",
-        skills: ["Interview Preparation", "Goal Setting", "Team Management"]
+        skills: ["Interview Preparation", "Goal Setting", "Team Management"],
+        sessions: [
+            {
+                text: "Career Development",
+                duration: 30,
+                fee: 30000
+            },
+            {
+                text: "Resume Feedback",
+                duration: 30,
+                fee: 50000
+            },
+            {
+                text: "Marketing Tips",
+                duration: 60,
+                fee: 100000
+            },
+        ]
+
     },
 ]
